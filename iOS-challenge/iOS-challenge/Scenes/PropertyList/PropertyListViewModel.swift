@@ -11,7 +11,7 @@ import Foundation
 class PropertyListViewModel: ObservableObject {
     
     @Published var properties: [Property] = []
-    @Published var isLoading: Bool = false
+    @Published var viewState: State = .idle
     
     private let getAllPropertiesUseCase: GetAllPropertiesUseCase
     private var cancellable: AnyCancellable?
@@ -23,14 +23,11 @@ class PropertyListViewModel: ObservableObject {
     
     func getProperties() {
         
-        isLoading = true
+        viewState = .loading
         
         cancellable = getAllPropertiesUseCase.execute()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
-                guard let self = self else { return }
-                
-                self.isLoading = false
+            .sink(receiveCompletion: { completion in
                 
                 switch completion {
                     
@@ -42,7 +39,18 @@ class PropertyListViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] (loadedProperties: [Property]) in
                 
+                self?.viewState = .loaded
                 self?.properties = loadedProperties
             })
+    }
+}
+
+extension PropertyListViewModel {
+    
+    enum State {
+        
+        case idle
+        case loading
+        case loaded
     }
 }
