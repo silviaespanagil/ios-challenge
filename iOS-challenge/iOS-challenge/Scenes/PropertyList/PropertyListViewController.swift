@@ -58,18 +58,20 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 320
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return properties.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyListCellView", for: indexPath) as! PropertyListCellView
         let property = properties[indexPath.row]
-        cell.updateUI(with: property) // Ahora es accesible
+        cell.updateUI(with: property)
         return cell
     }
 }
-

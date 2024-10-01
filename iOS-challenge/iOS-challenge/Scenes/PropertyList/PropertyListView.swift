@@ -16,20 +16,36 @@ struct PropertyListView: View {
         
         VStack {
             
-            if viewModel.isLoading {
-                
-                ProgressView()
-            } else if viewModel.properties.isEmpty {
-                
-                Text("No properties available")
-            } else {
-                
-                PropertyListViewControllerWrapper(properties: viewModel.properties)
-            }
+            content
         }
         .navigationTitle("Your future home")
         .onAppear {
             viewModel.getProperties()
         }
+    }
+    
+    @ViewBuilder
+    private var content: some View {
+        
+        switch viewModel.viewState {
+        case .idle:
+            EmptyView()
+        case .loading:
+            loadingView
+        case .loaded:
+            loadedView
+        }
+    }
+    
+    @ViewBuilder
+    private var loadingView: some View {
+        
+        ProgressView()
+    }
+    
+    @ViewBuilder
+    private var loadedView: some View {
+        
+        PropertyListViewControllerWrapper(properties: viewModel.properties)
     }
 }
