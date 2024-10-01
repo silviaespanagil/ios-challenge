@@ -29,7 +29,7 @@ struct PropertyListView: View {
         }
         .navigationTitle("Your future home")
         .onAppear {
-            viewModel.loadProperties()
+            viewModel.getProperties()
         }
     }
 }
