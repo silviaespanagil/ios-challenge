@@ -23,12 +23,14 @@ class PropertyListCellView: UITableViewCell {
     var favoriteButtonAction: (() -> Void)?
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
         setupContainerView()
         configureCellAppearance()
     }
     
     private func setupContainerView() {
+        
         containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(containerView)
@@ -41,11 +43,13 @@ class PropertyListCellView: UITableViewCell {
         ])
         
         for subview in contentView.subviews where subview != containerView {
+            
             containerView.addSubview(subview)
         }
     }
     
     private func configureCellAppearance() {
+        
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
@@ -64,7 +68,9 @@ class PropertyListCellView: UITableViewCell {
     }
     
     internal func updateUI(with property: Property) {
+        
         if let thumbnailURL = URL(string: property.thumbnail) {
+            
             propertyImageView.loadImage(from: thumbnailURL)
         }
         
