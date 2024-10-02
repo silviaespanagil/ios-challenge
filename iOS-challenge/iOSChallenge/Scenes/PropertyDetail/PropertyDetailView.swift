@@ -25,14 +25,16 @@ struct PropertyDetailView: View {
         
         VStack(spacing: .zero) {
             
-            propertyInformation
-            
-            Spacer().frame(height: 16)
-            
-            detailContent
+            ScrollView {
+                
+                propertyInformation
+                
+                Spacer().frame(height: 16)
+                
+                detailContent
+            }
         }.frame(maxHeight: .infinity, alignment: .top)
             .sheet(isPresented: $showMap) {
-                // TODO: Add Mapkit view
                 mapView
             }
             .onAppear {
@@ -67,7 +69,11 @@ struct PropertyDetailView: View {
                 
                 ExpandableTextView(text: viewModel.propertyDetail!.propertyComment)
                     .padding(.horizontal)
+                
+                Divider()
             }
+            
+            additionalCharacteristics
         }
     }}
 
@@ -167,6 +173,30 @@ extension PropertyDetailView {
         Spacer()
         
         MapView(latitude: property.latitude, longitude: property.longitude)
+    }
+    
+    @ViewBuilder
+    
+    var additionalCharacteristics: some View {
+        
+        VStack(alignment: .leading, spacing: 8) {
+            
+            Text("Características Adicionales")
+                .font(.title3)
+                .padding(.vertical, 8)
+            
+            if let characteristics = viewModel.propertyDetail?.moreCharacteristics {
+                
+                LazyVStack(alignment: .leading, spacing: 10) {
+                    
+                    ForEach(viewModel.additionalCharacteristicsList(characteristics), id: \.text) { characteristic in
+                        Label(characteristic.text, systemImage: characteristic.image)
+                            .font(.body)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal)
     }
 }
 
