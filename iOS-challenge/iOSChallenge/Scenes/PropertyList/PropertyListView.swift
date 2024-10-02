@@ -17,8 +17,12 @@ struct PropertyListView: View {
         VStack {
             
             content
+        }.toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Text("Tu próximo hogar")
+                    .font(.title)
+            }
         }
-        .navigationTitle("Your future home")
         .onAppear {
             viewModel.getProperties()
         }
