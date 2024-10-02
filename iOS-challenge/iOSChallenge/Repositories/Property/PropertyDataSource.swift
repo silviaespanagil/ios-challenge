@@ -12,7 +12,7 @@ class PropertyDataSource {
     
     static let propertyListEndpoint: String = "list.json"
     
-    private let baseURLString: String
+    internal let baseURLString: String
     private let session: URLSession
     
     init(baseURL: String = "https://idealista.github.io/ios-challenge/", session: URLSession = URLSession.shared) {
