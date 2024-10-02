@@ -27,6 +27,8 @@ class PropertyListCellView: UITableViewCell {
         super.awakeFromNib()
         setupContainerView()
         configureCellAppearance()
+        
+        selectionStyle = .none
     }
     
     private func setupContainerView() {
