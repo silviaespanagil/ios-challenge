@@ -122,7 +122,7 @@ extension PropertyDetailView {
                 .font(.custom("Avenir", size: 14))
                 .foregroundColor(.gray)
             
-            Label("\(property.district), \(property.province)", systemImage: "location")
+            Label("\(property.neighborhood), \(property.municipality)", systemImage: "location")
                 .font(.custom("Avenir", size: 14))
                 .foregroundColor(.gray)
             
@@ -130,7 +130,7 @@ extension PropertyDetailView {
             
             HStack {
                 
-                Text ("\(property.priceInfo.price.amount.formattedDouble)\(property.priceInfo.price.currencySuffix)")
+                Text ("\(property.priceInfo.price.amount.formattedDouble)  \(property.priceInfo.price.currencySuffix)")
                     .font(.title3)
                 
                 Spacer()
