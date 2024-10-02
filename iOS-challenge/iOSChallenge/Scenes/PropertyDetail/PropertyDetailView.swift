@@ -122,8 +122,25 @@ extension PropertyDetailView {
             
             Spacer().frame(height: 16)
             
-            Text ("\(property.priceInfo.price.amount.formattedDouble)\(property.priceInfo.price.currencySuffix)")
-                .font(.title3)
+            HStack {
+                
+                Text ("\(property.priceInfo.price.amount.formattedDouble)\(property.priceInfo.price.currencySuffix)")
+                    .font(.title3)
+                
+                Spacer()
+                
+                Button(action: {
+                    showMap = true
+                }) {
+                    
+                    HStack {
+                        Text("Ver mapa")
+                            .font(.body)
+                            .foregroundColor(.blue)
+                        Image(systemName: "map")
+                    }
+                }
+            }
         }.padding(16)
     }
     
@@ -148,6 +165,8 @@ extension PropertyDetailView {
         }
         
         Spacer()
+        
+        MapView(latitude: property.latitude, longitude: property.longitude)
     }
 }
 
