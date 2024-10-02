@@ -39,6 +39,37 @@ class PropertyDetailViewModel: ObservableObject {
                 self?.propertyDetail = detail
             })
     }
+    
+    internal func additionalCharacteristicsList(_ characteristics: PropertyCharacteristics) -> [(text: String, image: String)] {
+        
+        var items: [(String, String)] = []
+        
+        if let roomNumber = characteristics.roomNumber, roomNumber > 0 {
+            items.append(("Habitaciones: \(roomNumber)", "bed.double.fill"))
+        }
+        
+        if let bathNumber = characteristics.bathNumber, bathNumber > 0 {
+            items.append(("Baños: \(bathNumber)", "bathtub.fill"))
+        }
+        
+        if characteristics.lift ?? false {
+            items.append(("Con ascensor", "arrow.up.to.line.alt"))
+        }
+        
+        if let location = characteristics.flatLocation {
+            items.append(("Ubicación: \(location)", "location"))
+        }
+        
+        if let area = characteristics.constructedArea {
+            items.append(("Área construida: \(area.formattedDouble) m²", "ruler"))
+        }
+        
+        if let energyCertification = propertyDetail?.energyCertification {
+            items.append(("Certificación energética: \(energyCertification.emissions.type.capitalizedFirstLetter)", "leaf"))
+        }
+        
+        return items
+    }
 }
 
 extension PropertyDetailViewModel {
