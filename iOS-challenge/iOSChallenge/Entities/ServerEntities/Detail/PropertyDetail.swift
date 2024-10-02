@@ -11,13 +11,13 @@ struct PropertyDetail: Codable {
     
     let id: Int
     let price: Double
-    let priceInfo: PriceInfo
+    let priceInfo: DetailPriceInfo
     let operation: String
     let propertyType: String
     let extendedPropertyType: String
     let homeType: String
     let state: String
-    let multimedia: Multimedia
+    let multimedia: DetailMultimedia
     let propertyComment: String
     let ubication: Ubication
     let country: String
