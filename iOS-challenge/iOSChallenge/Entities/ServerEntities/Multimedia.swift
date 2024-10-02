@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Multimedia: Codable {
+struct Multimedia: Codable, Hashable {
     
     let images: [ServerImage]
     

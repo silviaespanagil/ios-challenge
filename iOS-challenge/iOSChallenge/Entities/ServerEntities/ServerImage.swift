@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServerImage: Codable {
+struct ServerImage: Codable, Hashable {
     
     let url: String
     let tag: String
