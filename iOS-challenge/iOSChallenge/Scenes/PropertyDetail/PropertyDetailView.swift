@@ -13,6 +13,7 @@ struct PropertyDetailView: View {
     
     @State var property: Property
     @State private var showMap = false
+    @State private var isExpanded: Bool = false
     
     var onFavoriteToggle: ((Bool) -> Void)?
     
@@ -22,9 +23,13 @@ struct PropertyDetailView: View {
     
     var body: some View {
         
-        VStack {
-            cardInformation
-            mapButton
+        VStack(spacing: .zero) {
+            
+            propertyInformation
+            
+            Spacer().frame(height: 16)
+            
+            detailContent
         }.frame(maxHeight: .infinity, alignment: .top)
             .sheet(isPresented: $showMap) {
                 // TODO: Add Mapkit view
@@ -33,26 +38,61 @@ struct PropertyDetailView: View {
             .onAppear {
                 viewModel.getPropertyDetail()
             }
+    }
+    
+    // MARK: - Detail State views
+    
+    @ViewBuilder
+    var detailContent: some View {
+        
+        switch viewModel.detailState {
+            
+        case .idle:
+            EmptyView()
+        case .loading:
+            ProgressView()
+        case .loaded:
+            loadedView
         }
-}
+    }
+    
+    @ViewBuilder
+    var loadedView: some View {
+        
+        VStack {
+            
+            ScrollView {
+                
+                Divider()
+                
+                ExpandableTextView(text: viewModel.propertyDetail!.propertyComment)
+                    .padding(.horizontal)
+            }
+        }
+    }}
+
+// MARK: - View Builders
 
 extension PropertyDetailView {
     
-    // MARK: - View Builders
-    
     @ViewBuilder
-    var cardInformation: some View {
+    var propertyInformation: some View {
         
-        VStack(alignment: .leading, spacing: .zero) {
+        VStack {
             
-            PropertyDetailImageCarousel(images: property.multimedia.images)
+            VStack(alignment: .leading, spacing: .zero) {
+                
+                PropertyDetailImageCarousel(images: property.multimedia.images)
+                
+                cardContent
+                
+            }.frame(height: 400)
+                .cardStyle()
             
-            cardContent
-        }.background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .shadow(radius: 5)
-            .frame(height: 400)
-            .padding(16)
+            Spacer().frame(height: 16)
+            
+            PropertyInfoView(size: property.size, rooms: property.rooms, bathrooms: property.bathrooms).cardStyle()
+        }.padding(.horizontal)
     }
     
     @ViewBuilder
@@ -61,11 +101,14 @@ extension PropertyDetailView {
         VStack(alignment: .leading) {
             
             HStack {
+                
                 Text(property.address.capitalizedFirstLetter)
                     .font(.custom("Avenir", size: 25))
                     .fontWeight(.bold)
                     .fixedSize(horizontal: false, vertical: true)
+                
                 Spacer()
+                
                 Image(systemName: "heart")
             }
             
@@ -82,18 +125,6 @@ extension PropertyDetailView {
             Text ("\(property.priceInfo.price.amount.formattedDouble)\(property.priceInfo.price.currencySuffix)")
                 .font(.title3)
         }.padding(16)
-    }
-    
-    @ViewBuilder
-    var mapButton: some View {
-        Button(action: {
-            showMap = true
-        }) {
-            Text("Ver mapa")
-                .font(.headline)
-                .foregroundColor(.blue)
-        }
-        .padding()
     }
     
     @ViewBuilder
