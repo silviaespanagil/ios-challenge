@@ -23,7 +23,7 @@ struct PropertyInfoView: View {
                 
                 Spacer()
                 
-                InfoSquare(icon: "ruler", text: "\(size) m²")
+                InfoSquare(icon: "ruler", text: "\(size.formattedDouble) m²")
                 
                 Spacer()
                 
