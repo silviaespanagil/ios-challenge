@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PropertyDetailView: View {
     
+    @StateObject var viewModel = PropertyDetailViewModel()
+    
     @State var property: Property
     @State private var showMap = false
     
@@ -28,7 +30,10 @@ struct PropertyDetailView: View {
                 // TODO: Add Mapkit view
                 mapView
             }
-    }
+            .onAppear {
+                viewModel.getPropertyDetail()
+            }
+        }
 }
 
 extension PropertyDetailView {
