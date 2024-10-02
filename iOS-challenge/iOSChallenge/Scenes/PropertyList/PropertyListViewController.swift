@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import Combine
 
 class PropertyListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -73,5 +74,18 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
         let property = properties[indexPath.row]
         cell.updateUI(with: property)
         return cell
+    }
+    
+    // - MARK: Navigation
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedProperty = properties[indexPath.row]
+        
+        let detailView = PropertyDetailView(property: selectedProperty)
+        
+        let hostingController = UIHostingController(rootView: detailView)
+        
+        navigationController?.pushViewController(hostingController, animated: true)
     }
 }
