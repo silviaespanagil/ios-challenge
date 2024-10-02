@@ -11,6 +11,7 @@ import Combine
 class PropertyDataSource {
     
     static let propertyListEndpoint: String = "list.json"
+    static let propertyDetailEndpoint: String = "detail.json"
     
     internal let baseURLString: String
     private let session: URLSession
@@ -37,6 +38,26 @@ class PropertyDataSource {
                 return data
             }
             .decode(type: [Property].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func getPropertyDetail() -> AnyPublisher<PropertyDetail, Error> {
+        
+        let endpoint = "\(baseURLString)\(PropertyDataSource.propertyDetailEndpoint)"
+        
+        guard let url = URL(string: endpoint) else {
+            return Fail(error: NSError(domain: "Invalid URL", code: -1, userInfo: nil)).eraseToAnyPublisher()
+        }
+        
+        return session.dataTaskPublisher(for: URLRequest(url: url))
+            .mapError { $0 as Error }
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) else {
+                    throw NSError(domain: "Invalid response", code: -1, userInfo: nil)
+                }
+                return data
+            }
+            .decode(type: PropertyDetail.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }
