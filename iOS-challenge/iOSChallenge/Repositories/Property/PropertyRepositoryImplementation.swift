@@ -21,4 +21,9 @@ class PropertyRepositoryImplementation: PropertyRepository {
         
         dataSource.getPropertyList()
     }
+    
+    func getPropertyDetail() -> AnyPublisher<PropertyDetail, Error> {
+        
+        dataSource.getPropertyDetail()
+    }
 }

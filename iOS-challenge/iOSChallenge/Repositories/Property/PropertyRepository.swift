@@ -10,4 +10,5 @@ import Combine
 protocol PropertyRepository {
     
     func getPropertyList() -> AnyPublisher<[Property], Error>
+    func getPropertyDetail() -> AnyPublisher<PropertyDetail, Error>
 }
