@@ -11,6 +11,7 @@ import Combine
 class PropertyDetailViewModel: ObservableObject {
     
     @Published var propertyDetail: PropertyDetail?
+    @Published var detailState: State = .idle
     
     private let getPropertyDetailUseCase: GetPropertyDetailUseCase
     private var cancellable: AnyCancellable?
@@ -22,6 +23,8 @@ class PropertyDetailViewModel: ObservableObject {
     
     func getPropertyDetail() {
         
+        detailState = .loading
+        
         cancellable = getPropertyDetailUseCase.execute()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -32,8 +35,17 @@ class PropertyDetailViewModel: ObservableObject {
                     break
                 }
             }, receiveValue: { [weak self] (detail: PropertyDetail) in
-                
+                self?.detailState = .loaded
                 self?.propertyDetail = detail
             })
+    }
+}
+
+extension PropertyDetailViewModel {
+    
+    enum State {
+        case idle
+        case loading
+        case loaded
     }
 }
