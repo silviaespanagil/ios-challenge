@@ -14,6 +14,8 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
     internal var properties: [Property] = []
     private var cancellables = Set<AnyCancellable>()
     
+    private var coreData = FavoritesManager.shared
+    
     init(properties: [Property]) {
         
         self.properties = properties
@@ -124,18 +126,16 @@ extension PropertyListViewController {
     
     private func toggleFavorite(at indexPath: IndexPath) {
         
-        // TODO: Add persistance
-        var property = properties[indexPath.section]
+        let property = properties[indexPath.section]
         
-        // Toggle isFavorite state
-        property.isFavorite.toggle()
+        let favorite = coreData.toggleFavorite(property)
        
         properties[indexPath.section] = property
         
         if let cell = tableView.cellForRow(at: indexPath) as? PropertyCardViewCell {
             
             UIView.transition(with: cell.favoriteButton, duration: 0.3, options: .transitionCrossDissolve) {
-                cell.updateFavoriteButton(isFavorite: property.isFavorite)
+                cell.updateFavoriteButton(isFavorite: favorite.isFavorite)
             }
         }
     }
