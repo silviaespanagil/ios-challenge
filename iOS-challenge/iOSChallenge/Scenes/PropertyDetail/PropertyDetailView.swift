@@ -9,16 +9,15 @@ import SwiftUI
 
 struct PropertyDetailView: View {
     
-    @StateObject var viewModel = PropertyDetailViewModel()
+    @StateObject var viewModel: PropertyDetailViewModel
     
     @State var property: Property
     @State private var showMap = false
     @State private var isExpanded: Bool = false
     
-    var onFavoriteToggle: ((Bool) -> Void)?
-    
     init(property: Property) {
         self.property = property
+        self._viewModel = StateObject(wrappedValue: PropertyDetailViewModel(property: property))
     }
     
     var body: some View {
@@ -115,9 +114,14 @@ extension PropertyDetailView {
                 
                 Spacer()
                 
-                Image(systemName: property.isFavorite ? "heart.fill" : "heart")
-                    .font(.title2)
-                    .foregroundColor(.green)
+                Button(action: {
+                    viewModel.toggleFavorite()
+                }) {
+                    
+                    Image(systemName: viewModel.favorite.isFavorite ? "heart.fill" : "heart")
+                        .font(.title2)
+                        .foregroundColor(.green)
+                }
             }
             
             Label("\(property.propertyType.capitalizedFirstLetter) on \(property.operation)", systemImage: "house")
@@ -127,6 +131,16 @@ extension PropertyDetailView {
             Label("\(property.neighborhood), \(property.municipality)", systemImage: "location")
                 .font(.custom("Avenir", size: 14))
                 .foregroundColor(.gray)
+            
+            if viewModel.favorite.isFavorite {
+                
+                Text("Favorito desde \(viewModel.favorite.dateAdded.formattedDate())")
+                    .font(.footnote)
+                    .padding(8)
+                    .background(Color.green.opacity(0.2))
+                    .cornerRadius(10)
+                    .foregroundColor(.green)
+            }
             
             Spacer().frame(height: 16)
             
@@ -202,7 +216,7 @@ extension PropertyDetailView {
         .padding(.horizontal)
     }
 }
-/*
+
 #Preview {
     PropertyDetailView(property: Property(
         id: "12345",
@@ -225,7 +239,7 @@ extension PropertyDetailView {
         latitude: 41.397738,
         longitude: 2.190471,
         description: "A beautiful apartment in the heart of the city.",
-        multimedia: Multimedia(images: [ServerImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp", tag: "livingRoom"), ServerImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/a1/0f/ee/1273036728.webp", tag: "unknown"), ServerImage(url: "https://img4.idealista.com/blebp", tag: "unknown"),]),
+        multimedia: Multimedia(images: [PropertyImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp", tag: "livingRoom"), PropertyImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/a1/0f/ee/1273036728.webp", tag: "unknown"), PropertyImage(url: "https://img4.idealista.com/blebp", tag: "unknown"),]),
         features: [
             "Swimming Pool": true,
             "Gym": false,
@@ -233,4 +247,4 @@ extension PropertyDetailView {
         ]
     ))
 }
-*/
+
