@@ -21,11 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="405" height="168"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA1-ok-xZC">
-                        <rect key="frame" x="334" y="178.66666666666666" width="51" height="35"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-DC-C0q">
                         <rect key="frame" x="20" y="176" width="162" height="34"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -62,6 +57,13 @@
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA1-ok-xZC">
+                        <rect key="frame" x="354" y="175.66666666666666" width="51" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system">
+                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                        </buttonConfiguration>
+                    </button>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="V1H-3a-Sjr"/>
                 <constraints>
@@ -75,10 +77,10 @@
                     <constraint firstItem="wQ0-DC-C0q" firstAttribute="top" secondItem="Vk6-Az-7zg" secondAttribute="bottom" constant="8" symbolic="YES" id="UuK-6H-YeU"/>
                     <constraint firstItem="6BZ-zD-83B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="WQl-Qc-UJX"/>
                     <constraint firstItem="RuE-gw-E66" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="143" id="fPb-NZ-uWv"/>
-                    <constraint firstItem="VA1-ok-xZC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="sbn-AP-Ui1"/>
+                    <constraint firstItem="VA1-ok-xZC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="20" id="sbn-AP-Ui1"/>
                     <constraint firstItem="RuE-gw-E66" firstAttribute="leading" secondItem="7KV-el-5wJ" secondAttribute="trailing" constant="22" id="uUh-R7-6zx"/>
                     <constraint firstItem="6BZ-zD-83B" firstAttribute="leading" secondItem="sqA-WO-HH5" secondAttribute="leading" id="wBB-tz-qwp"/>
-                    <constraint firstItem="VA1-ok-xZC" firstAttribute="baseline" secondItem="wQ0-DC-C0q" secondAttribute="firstBaseline" id="x8H-a0-NLk"/>
+                    <constraint firstItem="VA1-ok-xZC" firstAttribute="baseline" secondItem="wQ0-DC-C0q" secondAttribute="firstBaseline" constant="-3" id="x8H-a0-NLk"/>
                     <constraint firstAttribute="bottom" secondItem="RuE-gw-E66" secondAttribute="bottom" constant="11" id="yXG-xM-7Of"/>
                 </constraints>
             </tableViewCellContentView>
@@ -99,5 +101,8 @@
     </objects>
     <resources>
         <image name="suit.heart" catalog="system" width="128" height="107"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
