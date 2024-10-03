@@ -66,4 +66,41 @@ class PropertyDataSourceUnitTest: XCTestCase {
         
         wait(for: [expectation], timeout: 5.0)
     }
+    
+    func testPropertyDetailEndpoint() {
+        
+        // Given
+        let expectedEndpoint = "https://idealista.github.io/ios-challenge/detail.json"
+        
+        // When
+        let endpoint = "\(sut.baseURLString)\(PropertyDataSource.propertyDetailEndpoint)"
+        
+        // Then
+        XCTAssertEqual(endpoint, expectedEndpoint)
+    }
+    
+    func testGetPropertyDetailSuccess() {
+        
+        // Given
+        let expectation = self.expectation(description: "getPropertyDetail completes")
+        
+        // When
+        sut.getPropertyDetail()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure:
+                    break
+                }
+            }, receiveValue: { detail in
+                // Then
+                XCTAssertNotNil(detail)
+                XCTAssertEqual(detail.id, 1)
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 5.0)
+    }
 }
