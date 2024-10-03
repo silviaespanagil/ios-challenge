@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PropertyDetailImageCarousel: View {
     
-    var images: [ServerImage]
+    var images: [PropertyImage]
     
     var body: some View {
         
@@ -32,5 +32,5 @@ struct PropertyDetailImageCarousel: View {
 }
 
 #Preview {
-    PropertyDetailImageCarousel(images: [ServerImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp", tag: "livingRoom"), ServerImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp", tag: "livingRoom"),ServerImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/326727.webp", tag: "livingRoom")])
+    PropertyDetailImageCarousel(images: [PropertyImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp", tag: "livingRoom"), PropertyImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp", tag: "livingRoom"),PropertyImage(url: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/326727.webp", tag: "livingRoom")])
 }

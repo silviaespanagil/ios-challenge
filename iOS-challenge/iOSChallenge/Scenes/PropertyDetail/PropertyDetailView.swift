@@ -202,7 +202,7 @@ extension PropertyDetailView {
         .padding(.horizontal)
     }
 }
-
+/*
 #Preview {
     PropertyDetailView(property: Property(
         id: "12345",
@@ -233,3 +233,4 @@ extension PropertyDetailView {
         ]
     ))
 }
+*/
