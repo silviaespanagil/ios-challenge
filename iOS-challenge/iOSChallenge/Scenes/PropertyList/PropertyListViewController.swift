@@ -28,9 +28,10 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
     private lazy var tableView: UITableView = {
         
         let tableView = UITableView(frame: .zero, style: .plain)
-        let nib = UINib(nibName: "PropertyListCellView", bundle: nil)
+        let nib = UINib(nibName: "PropertyCardViewCell", bundle: nil)
         
-        tableView.register(nib, forCellReuseIdentifier: "PropertyListCellView")
+        tableView.register(nib, forCellReuseIdentifier: "PropertyCardViewCell")
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -51,31 +52,47 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+                tableView.topAnchor.constraint(equalTo: view.topAnchor),
+                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
     }
+}
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 320
-    }
+extension PropertyListViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    func numberOfSections(in tableView: UITableView) -> Int {
         return properties.count
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyListCellView", for: indexPath) as! PropertyListCellView
-        let property = properties[indexPath.row]
-        cell.updateUI(with: property)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyCardViewCell", for: indexPath) as! PropertyCardViewCell
+        let property = properties[indexPath.section]
+        cell.updateCardContent(with: property)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 300
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = UIView()
+        
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+        
     // - MARK: Navigation
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
