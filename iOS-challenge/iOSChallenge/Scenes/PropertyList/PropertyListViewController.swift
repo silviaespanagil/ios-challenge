@@ -103,7 +103,7 @@ extension PropertyListViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedProperty = properties[indexPath.row]
+        let selectedProperty = properties[indexPath.section]
         
         let detailView = PropertyDetailView(property: selectedProperty)
         
