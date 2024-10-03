@@ -71,16 +71,22 @@ extension PropertyListViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PropertyCardViewCell", for: indexPath) as! PropertyCardViewCell
         let property = properties[indexPath.section]
+        
         cell.updateCardContent(with: property)
+        
+        cell.favoriteButton.tag = indexPath.section
+        cell.favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped(_:)), for: .touchUpInside)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 300
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 8
     }
@@ -93,7 +99,7 @@ extension PropertyListViewController {
         return headerView
     }
         
-    // - MARK: Navigation
+    // MARK: Navigation
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -104,5 +110,33 @@ extension PropertyListViewController {
         let hostingController = UIHostingController(rootView: detailView)
         
         navigationController?.pushViewController(hostingController, animated: true)
+    }
+    
+    // MARK: Favorite
+    
+    @objc private func favoriteButtonTapped(_ sender: UIButton) {
+        
+        let index = sender.tag
+        guard index < properties.count else { return }
+        
+        toggleFavorite(at: IndexPath(row: 0, section: index))
+    }
+    
+    private func toggleFavorite(at indexPath: IndexPath) {
+        
+        // TODO: Add persistance
+        var property = properties[indexPath.section]
+        
+        // Toggle isFavorite state
+        property.isFavorite.toggle()
+       
+        properties[indexPath.section] = property
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? PropertyCardViewCell {
+            
+            UIView.transition(with: cell.favoriteButton, duration: 0.3, options: .transitionCrossDissolve) {
+                cell.updateFavoriteButton(isFavorite: property.isFavorite)
+            }
+        }
     }
 }
