@@ -9,6 +9,8 @@ import UIKit
 
 class PropertyCardViewCell: UITableViewCell {
     
+    private var favoritesManager = FavoritesManager.shared
+    
     @IBOutlet weak var contentViewCell: UIView!
     @IBOutlet weak var propertyImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -60,7 +62,8 @@ class PropertyCardViewCell: UITableViewCell {
         propertyRooms.text = "\(property.rooms) hab."
         propertyBathrooms.text = "\(property.bathrooms) baños"
         
-        updateFavoriteButton(isFavorite: property.isFavorite)
+        let favorite = favoritesManager.getFavorite(property)
+        updateFavoriteButton(isFavorite: favorite.isFavorite)
     }
     
     internal func updateFavoriteButton(isFavorite: Bool) {
