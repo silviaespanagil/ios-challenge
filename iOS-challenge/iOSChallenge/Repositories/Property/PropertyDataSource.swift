@@ -21,7 +21,7 @@ class PropertyDataSource {
         self.session = session
     }
     
-    func getPropertyList() -> AnyPublisher<[Property], Error> {
+    func getPropertyList() -> AnyPublisher<[ServerProperty], Error> {
         
         let endpoint = "\(baseURLString)\(PropertyDataSource.propertyListEndpoint)"
         
@@ -37,11 +37,11 @@ class PropertyDataSource {
                 }
                 return data
             }
-            .decode(type: [Property].self, decoder: JSONDecoder())
+            .decode(type: [ServerProperty].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
     
-    func getPropertyDetail() -> AnyPublisher<PropertyDetail, Error> {
+    func getPropertyDetail() -> AnyPublisher<ServerPropertyDetail, Error> {
         
         let endpoint = "\(baseURLString)\(PropertyDataSource.propertyDetailEndpoint)"
         
@@ -57,7 +57,7 @@ class PropertyDataSource {
                 }
                 return data
             }
-            .decode(type: PropertyDetail.self, decoder: JSONDecoder())
+            .decode(type: ServerPropertyDetail.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }
