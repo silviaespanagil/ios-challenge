@@ -59,5 +59,13 @@ class PropertyCardViewCell: UITableViewCell {
         propertySize.text = "\(property.size.formattedDouble) m²"
         propertyRooms.text = "\(property.rooms) hab."
         propertyBathrooms.text = "\(property.bathrooms) baños"
+        
+        updateFavoriteButton(isFavorite: property.isFavorite)
+    }
+    
+    internal func updateFavoriteButton(isFavorite: Bool) {
+        
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
 }
