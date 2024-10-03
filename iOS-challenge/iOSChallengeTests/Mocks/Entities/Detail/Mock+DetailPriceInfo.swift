@@ -11,6 +11,6 @@ extension DetailPriceInfo {
     
     static func mock() -> DetailPriceInfo {
         
-        return DetailPriceInfo(price: amount: 1195000.0, currencySuffix: "€")}
+        return DetailPriceInfo(amount: 1195000.0, currencySuffix: "€")
+    }
 }
-
