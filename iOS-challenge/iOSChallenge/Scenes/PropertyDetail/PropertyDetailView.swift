@@ -115,7 +115,9 @@ extension PropertyDetailView {
                 
                 Spacer()
                 
-                Image(systemName: "heart")
+                Image(systemName: property.isFavorite ? "heart.fill" : "heart")
+                    .font(.title2)
+                    .foregroundColor(.green)
             }
             
             Label("\(property.propertyType.capitalizedFirstLetter) on \(property.operation)", systemImage: "house")
@@ -142,8 +144,9 @@ extension PropertyDetailView {
                     HStack {
                         Text("Ver mapa")
                             .font(.body)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.green)
                         Image(systemName: "map")
+                            .foregroundColor(.green)
                     }
                 }
             }

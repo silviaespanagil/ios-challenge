@@ -29,7 +29,7 @@ struct ExpandableTextView: View {
             }) {
                 Text(isExpanded ? "Ver menos" : "Ver más")
                     .font(.body)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.green)
             }
         }.padding(.vertical, 8)
     }

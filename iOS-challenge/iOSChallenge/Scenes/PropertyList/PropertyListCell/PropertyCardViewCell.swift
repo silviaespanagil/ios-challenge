@@ -30,7 +30,7 @@ class PropertyCardViewCell: UITableViewCell {
         
         contentViewCell.clipsToBounds = false
         contentViewCell.layer.cornerRadius = 15
-        contentViewCell.backgroundColor = UIColor.white
+        contentViewCell.backgroundColor = .clear
         
         contentViewCell.layer.borderWidth = 1
         contentViewCell.layer.borderColor = UIColor.lightGray.cgColor

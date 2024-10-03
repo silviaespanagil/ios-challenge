@@ -12,6 +12,7 @@ struct iOSChallengeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .accentColor(.green)
         }
     }
 }
