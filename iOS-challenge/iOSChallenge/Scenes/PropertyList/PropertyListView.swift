@@ -53,3 +53,6 @@ struct PropertyListView: View {
         PropertyListViewControllerWrapper(properties: viewModel.properties)
     }
 }
+#Preview {
+    PropertyListView()
+}
