@@ -12,13 +12,21 @@ class PropertyDetailViewModel: ObservableObject {
     
     @Published var propertyDetail: PropertyDetail?
     @Published var detailState: State = .idle
+    @Published var favorite: Favorite
     
+    private let property: Property
+    private let favoritesManager: FavoritesManager
     private let getPropertyDetailUseCase: GetPropertyDetailUseCase
     private var cancellable: AnyCancellable?
     
-    init() {
+    init(property: Property, favoritesManager: FavoritesManager = .shared) {
         
         self.getPropertyDetailUseCase = GetPropertyDetailUseCase()
+        
+        self.property = property
+        self.favoritesManager = favoritesManager
+        
+        self.favorite = favoritesManager.getFavorite(property)
     }
     
     func getPropertyDetail() {
@@ -69,6 +77,11 @@ class PropertyDetailViewModel: ObservableObject {
         }
         
         return items
+    }
+    
+    func toggleFavorite() {
+        
+        favorite = favoritesManager.toggleFavorite(property)
     }
 }
 
