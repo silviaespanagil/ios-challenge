@@ -32,6 +32,8 @@ struct Property: Codable, Identifiable {
     let multimedia: Multimedia
     let features: [String: Bool]
     
+    var isFavorite: Bool = false
+    
     enum CodingKeys: String, CodingKey {
         
         case id = "propertyCode"
