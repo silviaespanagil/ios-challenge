@@ -19,11 +19,25 @@ class PropertyRepositoryImplementation: PropertyRepository {
     
     func getPropertyList() -> AnyPublisher<[Property], Error> {
         
-        dataSource.getPropertyList()
+        return dataSource.getPropertyList().map { serverPropertyList in
+            
+            let propertyList = serverPropertyList.map { $0.convertToEntity() }
+            
+            return propertyList
+        }
+        .mapError({ $0 })
+        .eraseToAnyPublisher()
     }
     
     func getPropertyDetail() -> AnyPublisher<PropertyDetail, Error> {
         
-        dataSource.getPropertyDetail()
+        return dataSource.getPropertyDetail().map { serverPropertyDetail in
+            
+            let detail = serverPropertyDetail.convertToEntity()
+            
+            return detail
+        }
+        .mapError({ $0 })
+        .eraseToAnyPublisher()
     }
 }
