@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="KGk-i7-Jjw" customClass="PropertyCardViewCell" customModule="iOSChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="303"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" userLabel="Content View Cell">
+                <rect key="frame" x="0.0" y="0.0" width="405" height="303"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="Vk6-Az-7zg">
+                        <rect key="frame" x="0.0" y="0.0" width="405" height="168"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA1-ok-xZC">
+                        <rect key="frame" x="334" y="178.66666666666666" width="51" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="suit.heart" catalog="system"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ0-DC-C0q">
+                        <rect key="frame" x="20" y="176" width="162" height="34"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flat on sale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqA-WO-HH5">
+                        <rect key="frame" x="20" y="211" width="65" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300 €/mes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-zD-83B">
+                        <rect key="frame" x="20" y="242" width="105" height="27"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="133 m²" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8o-0p-VJe">
+                        <rect key="frame" x="20" y="277" width="39" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 habs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KV-el-5wJ">
+                        <rect key="frame" x="82" y="276" width="39" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 baños" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuE-gw-E66">
+                        <rect key="frame" x="143" y="277" width="45" height="15"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="V1H-3a-Sjr"/>
+                <constraints>
+                    <constraint firstItem="6BZ-zD-83B" firstAttribute="leading" secondItem="wQ0-DC-C0q" secondAttribute="leading" id="1uC-DI-NoP"/>
+                    <constraint firstAttribute="bottom" secondItem="7KV-el-5wJ" secondAttribute="bottom" constant="12" id="60e-er-Vm6"/>
+                    <constraint firstItem="sqA-WO-HH5" firstAttribute="top" secondItem="wQ0-DC-C0q" secondAttribute="bottom" constant="1" id="6Ua-QC-hxe"/>
+                    <constraint firstItem="6BZ-zD-83B" firstAttribute="leading" secondItem="X8o-0p-VJe" secondAttribute="leading" id="AvC-vD-0Qa"/>
+                    <constraint firstAttribute="bottom" secondItem="X8o-0p-VJe" secondAttribute="bottom" constant="11" id="FOt-z5-4Q2"/>
+                    <constraint firstItem="7KV-el-5wJ" firstAttribute="top" secondItem="6BZ-zD-83B" secondAttribute="bottom" constant="7" id="Mrt-Nd-UYf"/>
+                    <constraint firstItem="V1H-3a-Sjr" firstAttribute="bottom" secondItem="Vk6-Az-7zg" secondAttribute="bottom" constant="135" id="SW4-hB-UtA"/>
+                    <constraint firstItem="wQ0-DC-C0q" firstAttribute="top" secondItem="Vk6-Az-7zg" secondAttribute="bottom" constant="8" symbolic="YES" id="UuK-6H-YeU"/>
+                    <constraint firstItem="6BZ-zD-83B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="WQl-Qc-UJX"/>
+                    <constraint firstItem="RuE-gw-E66" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="143" id="fPb-NZ-uWv"/>
+                    <constraint firstItem="VA1-ok-xZC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="sbn-AP-Ui1"/>
+                    <constraint firstItem="RuE-gw-E66" firstAttribute="leading" secondItem="7KV-el-5wJ" secondAttribute="trailing" constant="22" id="uUh-R7-6zx"/>
+                    <constraint firstItem="6BZ-zD-83B" firstAttribute="leading" secondItem="sqA-WO-HH5" secondAttribute="leading" id="wBB-tz-qwp"/>
+                    <constraint firstItem="VA1-ok-xZC" firstAttribute="baseline" secondItem="wQ0-DC-C0q" secondAttribute="firstBaseline" id="x8H-a0-NLk"/>
+                    <constraint firstAttribute="bottom" secondItem="RuE-gw-E66" secondAttribute="bottom" constant="11" id="yXG-xM-7Of"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentViewCell" destination="H2p-sc-9uM" id="jhA-AO-Lfm"/>
+                <outlet property="favoriteButton" destination="VA1-ok-xZC" id="2SM-Fk-C6K"/>
+                <outlet property="propertyBathrooms" destination="RuE-gw-E66" id="Qyn-C7-6o9"/>
+                <outlet property="propertyImageView" destination="Vk6-Az-7zg" id="sUD-WH-smz"/>
+                <outlet property="propertyOperationType" destination="sqA-WO-HH5" id="nWe-4R-uVb"/>
+                <outlet property="propertyPrice" destination="6BZ-zD-83B" id="3JW-BJ-nNB"/>
+                <outlet property="propertyRooms" destination="7KV-el-5wJ" id="S8J-KA-REf"/>
+                <outlet property="propertySize" destination="X8o-0p-VJe" id="787-uw-UhR"/>
+                <outlet property="propertyTitle" destination="wQ0-DC-C0q" id="JUQ-fw-Ox3"/>
+            </connections>
+            <point key="canvasLocation" x="-43.511450381679388" y="87.676056338028175"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="suit.heart" catalog="system" width="128" height="107"/>
+    </resources>
+</document>
