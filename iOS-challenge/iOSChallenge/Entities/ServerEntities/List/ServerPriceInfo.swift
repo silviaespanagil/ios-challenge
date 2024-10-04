@@ -1,6 +1,6 @@
 //
 //  ServerPriceInfo.swift
-//  iOS-challenge
+//  iOSChallenge
 //
 //  Created by Silvia España Gil on 1/10/24.
 //
