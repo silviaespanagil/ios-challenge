@@ -12,14 +12,14 @@ class FavoritesManager {
     
     static let shared = FavoritesManager()
     
-    private let container: NSPersistentContainer
+    internal var container: NSPersistentContainer
     
     var context: NSManagedObjectContext {
         
         container.viewContext
     }
     
-    private init() {
+    internal init() {
         
         container = NSPersistentContainer(name: "FavoriteProperty")
         container.loadPersistentStores { description, error in
@@ -67,7 +67,7 @@ extension FavoritesManager {
     
     // MARK: Private methods
     
-    private func addFavorite(_ property: Property) -> Favorite {
+    internal func addFavorite(_ property: Property) -> Favorite {
         
         let favorite = FavoriteProperty(context: context)
         
@@ -79,7 +79,7 @@ extension FavoritesManager {
         return Favorite.from(favorite)
     }
     
-    private func removeFavorite(_ property: Property) {
+    internal func removeFavorite(_ property: Property) {
         
         let fetchRequest: NSFetchRequest<FavoriteProperty> = FavoriteProperty.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", property.id)
@@ -96,7 +96,7 @@ extension FavoritesManager {
         }
     }
     
-    private func isFavorite(_ property: Property) -> Bool {
+    internal func isFavorite(_ property: Property) -> Bool {
         
         let fetchRequest: NSFetchRequest<FavoriteProperty> = FavoriteProperty.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", property.id)
@@ -112,7 +112,7 @@ extension FavoritesManager {
         }
     }
     
-    private func saveContext() {
+    internal func saveContext() {
         
         if context.hasChanges {
             
