@@ -11,5 +11,5 @@ extension Multimedia {
     
     static func mock() -> Multimedia {
         
-        return Multimedia(images: [ServerImage(url: "http://jsonplaceholder.typicode.com/", tag: "Mock image")])}
+        return Multimedia(images: [PropertyImage(url: "http://jsonplaceholder.typicode.com/", tag: "Mock image")])}
 }
