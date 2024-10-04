@@ -9,7 +9,7 @@
 
 extension Property {
     
-    static func mock() -> Property {
+    static func mock(isFavorite: Bool = false) -> Property {
         
         return Property(
             id: "12345",
@@ -37,7 +37,8 @@ extension Property {
                 "Swimming Pool": true,
                 "Gym": false,
                 "Balcony": true
-            ]
+            ],
+            isFavorite: isFavorite
         )
     }
 }
