@@ -55,11 +55,11 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.showsVerticalScrollIndicator = false
         
         NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: view.topAnchor),
-                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
@@ -101,7 +101,7 @@ extension PropertyListViewController {
         headerView.backgroundColor = .clear
         return headerView
     }
-        
+    
     // MARK: Navigation
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,7 +130,7 @@ extension PropertyListViewController {
         let property = properties[indexPath.section]
         
         let favorite = coreData.toggleFavorite(property)
-       
+        
         properties[indexPath.section] = property
         
         if let cell = tableView.cellForRow(at: indexPath) as? PropertyCardViewCell {
