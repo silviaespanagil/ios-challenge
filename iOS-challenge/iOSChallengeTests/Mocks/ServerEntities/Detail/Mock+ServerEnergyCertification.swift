@@ -11,6 +11,8 @@ extension ServerEnergyCertification {
     
     static func mock() -> ServerEnergyCertification {
         
-        return ServerEnergyCertification(title: "Certificación", energyConsumption: ServerEnergyConsumption.mock(), emissions: ServerEmissions.mock())
+        return ServerEnergyCertification(title: "Certificación",
+                                         energyConsumption: ServerEnergyConsumption.mock(),
+                                         emissions: ServerEmissions.mock())
     }
 }

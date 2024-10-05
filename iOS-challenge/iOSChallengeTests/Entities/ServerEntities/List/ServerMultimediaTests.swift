@@ -23,9 +23,7 @@ class ServerMultimediaTests: XCTestCase {
     func testConvertToEntity() {
         
         // Given
-        let serverImage = ServerImage(url: "http://jsonplaceholder.typicode.com/", tag: "Mock image")
-        
-        let serverMultimedia = ServerMultimedia(images: [serverImage])
+        let serverMultimedia = ServerMultimedia.mock()
         
         // When
         let multimedia = serverMultimedia.convertToEntity()
