@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "compression-type" : "automatic",
       "filename" : "idealista-logo_freelogovectors.net_-400x76.png",
       "idiom" : "universal",
       "scale" : "1x"
@@ -17,5 +18,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }
