@@ -52,6 +52,7 @@ class PropertyListViewController: UIViewController, UITableViewDataSource, UITab
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
         
         NSLayoutConstraint.activate([
                 tableView.topAnchor.constraint(equalTo: view.topAnchor),
