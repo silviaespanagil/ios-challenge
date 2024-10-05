@@ -15,7 +15,7 @@ struct ContentView: View {
             
             PropertyListView()
                 .ignoresSafeArea()
-        }
+        }.navigationViewStyle(.stack)
     }
 }
 
