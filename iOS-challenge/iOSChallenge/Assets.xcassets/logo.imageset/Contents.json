@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "idealista-logo_freelogovectors.net_-400x76.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
