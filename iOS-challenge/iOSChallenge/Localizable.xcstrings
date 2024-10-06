@@ -1,10 +1,10 @@
 {
-  "sourceLanguage" : "en",
+  "sourceLanguage" : "es",
   "strings" : {
     "%@, %@" : {
       "comment" : "Neighborhood and municipality",
       "localizations" : {
-        "en" : {
+        "es" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@, %2$@"
