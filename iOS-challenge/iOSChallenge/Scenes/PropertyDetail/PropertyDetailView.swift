@@ -124,17 +124,17 @@ extension PropertyDetailView {
                 }
             }
             
-            Label("\(property.propertyType.capitalizedFirstLetter) on \(property.operation)", systemImage: "house")
+            Label(viewModel.localization.propertyTypeAndOperation(property.propertyType, operation: property.operation), systemImage: "house")
                 .font(.custom("Avenir", size: 14))
                 .foregroundColor(.gray)
             
-            Label("\(property.neighborhood), \(property.municipality)", systemImage: "location")
+            Label(viewModel.localization.neighborhoodAndMunicipality(property.neighborhood, municipality: property.municipality), systemImage: "location")
                 .font(.custom("Avenir", size: 14))
                 .foregroundColor(.gray)
             
             if viewModel.favorite.isFavorite {
                 
-                Text("Favorito desde \(viewModel.favorite.dateAdded.formattedDate())")
+                Text(viewModel.localization.favoriteSinceDate(viewModel.favorite.dateAdded))
                     .font(.footnote)
                     .padding(8)
                     .background(Color.green.opacity(0.2))
@@ -146,8 +146,9 @@ extension PropertyDetailView {
             
             HStack {
                 
-                Text ("\(property.priceInfo.price.amount.formattedDouble)  \(property.priceInfo.price.currencySuffix)")
-                    .font(.title3)
+                Text (viewModel.localization.formattedPrice(property.priceInfo.price.amount.formattedDouble,
+                                                            currency: property.priceInfo.price.currencySuffix))
+                .font(.title3)
                 
                 Spacer()
                 
@@ -156,7 +157,7 @@ extension PropertyDetailView {
                 }) {
                     
                     HStack {
-                        Text("Ver mapa")
+                        Text(viewModel.localization.viewMapButton)
                             .font(.body)
                             .foregroundColor(.green)
                         Image(systemName: "map")
@@ -169,11 +170,12 @@ extension PropertyDetailView {
     
     @ViewBuilder
     var mapView: some View {
+        
         VStack {
             
             HStack {
                 
-                Text("Ubicación aproximada")
+                Text(viewModel.localization.approximateLocation)
                     .font(.headline)
                 
                 Spacer()
@@ -198,7 +200,7 @@ extension PropertyDetailView {
         
         VStack(alignment: .leading, spacing: 8) {
             
-            Text("Características Adicionales")
+            Text(viewModel.localization.additionalCharacteristics)
                 .font(.title3)
                 .padding(.vertical, 8)
             
@@ -247,4 +249,3 @@ extension PropertyDetailView {
         ]
     ))
 }
-

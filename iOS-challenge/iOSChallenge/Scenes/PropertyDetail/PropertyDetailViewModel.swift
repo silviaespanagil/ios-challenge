@@ -17,11 +17,16 @@ class PropertyDetailViewModel: ObservableObject {
     private let property: Property
     private let favoritesManager: FavoritesManager
     private let getPropertyDetailUseCase: GetPropertyDetailUseCase
+    
+    let localization: PropertyDetailLocalization
+    
     private var cancellable: AnyCancellable?
     
     init(property: Property, favoritesManager: FavoritesManager = .shared) {
         
         self.getPropertyDetailUseCase = GetPropertyDetailUseCase()
+        
+        self.localization = PropertyDetailLocalization()
         
         self.property = property
         self.favoritesManager = favoritesManager
@@ -53,27 +58,27 @@ class PropertyDetailViewModel: ObservableObject {
         var items: [(String, String)] = []
         
         if let roomNumber = characteristics.roomNumber, roomNumber > 0 {
-            items.append(("Habitaciones: \(roomNumber)", "bed.double.fill"))
+            items.append(("\(localization.additionalCharacteristics("roomNumber")): \(roomNumber)", "bed.double.fill"))
         }
         
         if let bathNumber = characteristics.bathNumber, bathNumber > 0 {
-            items.append(("Baños: \(bathNumber)", "bathtub.fill"))
+            items.append(("\(localization.additionalCharacteristics("bathNumber")): \(bathNumber)", "bathtub.fill"))
         }
         
         if characteristics.lift ?? false {
-            items.append(("Con ascensor", "arrow.up.to.line.alt"))
+            items.append(("\(localization.additionalCharacteristics("lift"))", "arrow.up.to.line.alt"))
         }
         
         if let location = characteristics.flatLocation {
-            items.append(("Ubicación: \(location)", "location"))
+            items.append(("\(localization.additionalCharacteristics("flatLocation")): \(location)", "location"))
         }
         
         if let area = characteristics.constructedArea {
-            items.append(("Área construida: \(area.formattedDouble) m²", "ruler"))
+            items.append(("\(localization.additionalCharacteristics("constructedArea")): \(area.formattedDouble) m²", "ruler"))
         }
         
         if let energyCertification = propertyDetail?.energyCertification {
-            items.append(("Certificación energética: \(energyCertification.emissions.type.capitalizedFirstLetter)", "leaf"))
+            items.append(("\(localization.additionalCharacteristics("energyCertification")): \(energyCertification.emissions.type.capitalizedFirstLetter)", "leaf"))
         }
         
         return items
