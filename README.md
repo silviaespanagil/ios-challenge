@@ -1,56 +1,150 @@
-# idealista iOS Challenge
-The idealista iOS team is on the lookout for a new teammate! We’re on a mission to find someone who’s ready to dive into the exciting (and sometimes wild) world of iOS development. From building cool new features to squashing bugs, crafting pixel-perfect UIs, and making sure everything runs smoothly and securely — we’ve got plenty to keep you on your toes.
+# iOS Challenge: Property Listing App
 
-Think you’re up for the challenge? We could really use your skills to create the next generation of awesome features that will take our app to new heights. Whether it’s making sure our users have a seamless experience or pushing the limits of performance, we need someone who’s ready to jump in and make a real impact.
+¡Hola mundo!
 
-Here at idealista, we’re all about clean, maintainable code and solid testable components. If you love turning great ideas into reality, this might just be the perfect challenge for you!
+I was presented with the Idealista iOS Challenge to create a property listing app that allows users to browse through a list of properties, view details, and favorite their top choices. This project showcases my approach to building a modern, scalable iOS application using Clean Architecture combined with MVVM patterns.
 
-&nbsp;
+## Built with 🔨
 
-### 🚀 Getting Started
-1. Read the **minimum requirements**.
-2. Fork this repository.
-3. Start coding and have fun!
+- SwiftUI & UIKit
+- Combine
+- Core Data
+- MapKit
 
-&nbsp;
+## Architecture Overview 🏗️
 
-### 📱 Task
-Build a small app that allows users to browse through a list of ads and view ad details on a separate screen.
+The project follows Clean Architecture principles, divided into clear layers:
 
-&nbsp;
+### Domain Layer
+```
+├── Entities
+│   ├── Entity
+│   │   ├── Detail
+│   │   ├── Favorite
+│   │   └── List
+│   └── ServerEntities
+│       ├── Detail
+│       └── List
+├── UseCases
+```
+This layer contains business logic using Combine. It includes:
+- Business entities
+- Use case interfaces
+- Repository interfaces
 
-### 🌐 API
-- List: [https://idealista.github.io/ios-challenge/list.json](https://idealista.github.io/ios-challenge/list.json)  
-- Detail: [https://idealista.github.io/ios-challenge/detail.json](https://idealista.github.io/ios-challenge/detail.json) *Please note: the response is always the same*.
+### Data Layer
+```
+├── Repositories
+│   └── Property
+├── Persistence
+│   └── Model
+```
+Implements data access and storage:
+- Repository implementations
+- Core Data models
+- API clients
 
-&nbsp;
+### Presentation Layer (MVVM)
+```
+├── Scenes
+│   ├── PropertyDetail
+│   │   ├── ViewModels
+│   │   ├── Views
+│   │   └── Localization
+│   ├── PropertyList
+│       ├── PropertyListCell
+│           ├── Views
+│           ├── .xib
+│           ├── Localization
+│       ├── Views
+│       ├── ViewModel
+│       ├── Controller
+│       ├── ControllerWrapper
+│       └── Localization
+```
+Uses MVVM patterns:
+- ViewModels handle presentation logic
+- Views (UIKit & SwiftUI) for UI
+- Use of ControllerWrapper to allow interoperability between UIKIT and SwiftUI
 
-### ✅ Minimum Requirements
-- The app must run on **Xcode 16.0** and be compatible with **iOS 15** through **iOS 18**.
-- The app should include at least **two screens**:
-  - A **listing screen** displaying a collection of ads.
-  - A **detail screen** for viewing individual ad information.
-- The code must be written in **Swift** and use the **UIKit** framework.
-- Implement functionality to allow users to **favorite ads**.
-  - If an ad is favorited, display the **date** it was favorited.
-- Use the provided **API endpoints** to fetch and display ad data.
-- Only use **third-party libraries** if absolutely necessary. We value clean and lightweight implementations.
+## Key Features 📋
 
-&nbsp;
+All the features are available in iPhone and iPad devices since iOS 15, have dark mode support and can be read both in English and Spanish. 
 
-### 🎁 Optional Bonus Tasks (For extra kudos!)
-1. Implement **pull-to-refresh** functionality on the listing screen.
-2. **Localize** the app into at least one additional language.
-3. Add **tests** for key components of the app.
-4. Add support for **Dark Mode** to ensure the app looks great in all environments.
-5. Incorporate some **SwiftUI** code alongside UIKit.
-6. Implement **persistent storage** using Core Data, SwiftData, Realm, or any other suitable solution.
-7. Add **iPad support** with a responsive layout.
-8. Show the location of the ad using a **map** view, indicating its position.
-9. Feel free to go beyond the requirements and **improve the app** in any way you think is best — we love creativity!
+The API information is retrieved using Combine, taking benefit of Combine's reactiveness. The views are rendered by state, allowing to have:
+- Loading state with loading animation
+- Loaded state with content
 
-&nbsp;
+### Property Listing 🏠
+- Displays a collection of properties with their information
+- Properties can be favorited by the user
+- Each property has a detail view
+- Seamless UIKit and SwiftUI integration
 
-### 🎉 Once You’ve Finished
-1. Email us at [tlfernandez@idealista.com](mailto:tlfernandez@idealista.com) with your repository link you'd like our iOS team to review, or send the project folder (including the `.git` directory).
-2. Celebrate with a beer after a well done job! 🍺
+ <img src="https://github.com/user-attachments/assets/9e24ba97-e2fa-4431-9aa1-4704e9b32824" alt="" width="250"/> <img src="https://github.com/user-attachments/assets/942660d8-5f4f-48c2-9bef-aeda42ec1090" alt="" width="250"/>
+
+### Property Details 🔍
+- Detailed view of each property
+- Main property information is already loaded to ensure seamless experience
+- Interactive map showing property location
+- Favorite functionality with date tracking
+
+ <img src="https://github.com/user-attachments/assets/f5394a17-0f06-4c47-9339-3a645f89fd7d" alt="" width="250"/> <img src="https://github.com/user-attachments/assets/ca1883bd-5514-4075-8a15-c7b9dccc9995" alt="" width="250"/> <img src="https://github.com/user-attachments/assets/6b5cc449-6557-4897-b751-b2f28cf45192" alt="" width="250"/> 
+ <img src="https://github.com/user-attachments/assets/043dd7a9-07c4-4a13-903f-564bf833f073" alt="" width="250"/> <img src="https://github.com/user-attachments/assets/731ab7ad-6065-43f9-a08b-74867065fd8e" alt="" width="250"/> <img src="https://github.com/user-attachments/assets/0a65c37e-3e55-443b-ab9f-026b26c8f969" alt="" width="250"/>
+
+### Data Persistence 💾
+Core Data is used for local storage allowing the user to add or remove favorites. Other methods has been created to allow the functionality to work properly, for that reason there're methods to get all the favorites and to check if an specific property has been favorited.
+The model storage the property id, the date the user has added the property as favorite and the favorite value per se.
+
+### Localization 🌍
+The app supports two languages: 
+
+- English
+- Spanish
+
+Localization is done using the native String Catalog.
+
+## Development Details ⌨️
+
+### API Integration 📞
+The app connects to two endpoints. Combine is used for all service calls.
+- List: https://idealista.github.io/ios-challenge/list.json
+- Detail: https://idealista.github.io/ios-challenge/detail.json
+
+### Testing ✅
+
+There are currently 31 unit tests in the app. I've given test priority to the domain and data layer files.
+- Convert to entity files with 100% coverage
+- Data source with 92,9% coverage
+- Repository implementation with 100% coverage
+- Persistance with 85,7% coverage
+- Extensions are also tested with more than 88% coverage each
+
+## Technical Challenges 🏋️‍♂️
+
+- **UIKit & SwiftUI Interoperability**: Implemented a wrapper pattern to seamlessly integrate UIKit components with SwiftUI views
+
+## Future Improvements 🔮
+
+Even tho they are no part of the challenge I will surely keep adding some functionalities for my own sake.
+
+- [ ] Favorites list
+- [ ] Add filtering capabilities
+- [ ] Implement property sharing functionality
+- [ ] Add unit tests for ViewModels
+- [ ] Add ViewInspector library for UI tests
+- [ ] Enhance iPad layout for better use of screen space
+- [ ] Refactor of FavoritesManager to have a CLEAN approach
+- [ ] CI/CD implementation with Github Actions for testing automation
+
+## Installation 🚀
+
+1. Clone the repository
+2. Open `Property.xcodeproj` in Xcode 16.0 or later
+3. Build and run the project
+
+## Requirements 📱
+- iOS 15.0+
+- Xcode 16.0+
+- Swift 5.0+
+
