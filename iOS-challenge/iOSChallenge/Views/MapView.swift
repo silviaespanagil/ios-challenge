@@ -17,6 +17,11 @@ struct MapView: View {
     @State private var coordinates: CLLocationCoordinate2D?
     @State private var annotations: [MapAnnotation] = []
     
+    // Localization
+    let errorMessageTittle: String
+    let errorMessage: String
+    let errorButtonLabel: String
+    
     init(latitude: Double, longitude: Double) {
         
         self.latitude = latitude
@@ -25,6 +30,10 @@ struct MapView: View {
             center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
             span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         ))
+        
+        self.errorMessageTittle = NSLocalizedString("map_view_error_message_title", comment: "Title if the map don't load")
+        self.errorMessage = NSLocalizedString("map_view_error_message", comment: "Message if the map don't load")
+        self.errorButtonLabel = NSLocalizedString("map_view_error_button_label", comment: "Button to try loading map again in error view")
     }
     
     func loadMapData() {
@@ -68,11 +77,11 @@ extension MapView {
     var errorView: some View {
         
         VStack(spacing: 20) {
-            Text("Oops, no pudimos cargar el mapa :(")
+            Text(errorMessageTittle)
                 .font(.headline)
                 .multilineTextAlignment(.center)
             
-            Text("Intenta de nuevo")
+            Text(errorMessage)
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
@@ -80,7 +89,7 @@ extension MapView {
                 isLoading = true
                 loadMapData()
             }) {
-                Text("Volver a cargar el mapa")
+                Text(errorButtonLabel)
                     .fontWeight(.bold)
                     .padding()
                     .background(Color.red.opacity(0.9))
