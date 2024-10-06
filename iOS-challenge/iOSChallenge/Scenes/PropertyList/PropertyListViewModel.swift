@@ -13,12 +13,15 @@ class PropertyListViewModel: ObservableObject {
     @Published var properties: [Property] = []
     @Published var viewState: State = .idle
     
+    let localization: PropertyListLocalization
+    
     private let getAllPropertiesUseCase: GetAllPropertiesUseCase
     private var cancellable: AnyCancellable?
     
     init() {
         
         self.getAllPropertiesUseCase = GetAllPropertiesUseCase()
+        self.localization = PropertyListLocalization()
     }
     
     func getProperties() {

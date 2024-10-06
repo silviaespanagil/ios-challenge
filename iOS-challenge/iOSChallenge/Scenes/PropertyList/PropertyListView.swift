@@ -19,7 +19,7 @@ struct PropertyListView: View {
             content
         }.toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Text("Tu próximo hogar")
+                Text(viewModel.localization.title)
                     .font(.title)
             }
         }
