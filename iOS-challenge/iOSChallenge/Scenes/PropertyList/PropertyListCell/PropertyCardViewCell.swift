@@ -9,6 +9,8 @@ import UIKit
 
 class PropertyCardViewCell: UITableViewCell {
     
+    let localization: PropertyCardLocalization = PropertyCardLocalization()
+    
     private var favoritesManager = FavoritesManager.shared
     
     @IBOutlet weak var contentViewCell: UIView!
@@ -51,16 +53,22 @@ class PropertyCardViewCell: UITableViewCell {
     
     internal func updateCardContent(with property: Property) {
         
+        let size = property.size.formattedDouble
+        
         if let thumbnailURL = URL(string: property.thumbnail) {
             propertyImageView.loadImage(from: thumbnailURL)
         }
         
         propertyTitle.text = property.address.capitalizedFirstLetter
-        propertyOperationType.text = "\(property.propertyType.capitalizedFirstLetter) \(property.operation) - \(property.neighborhood), \(property.municipality)"
-        propertyPrice.text = "\(property.priceInfo.price.amount.formattedDouble) \(property.priceInfo.price.currencySuffix)"
-        propertySize.text = "\(property.size.formattedDouble) m²"
-        propertyRooms.text = "\(property.rooms) hab."
-        propertyBathrooms.text = "\(property.bathrooms) baños"
+        propertyOperationType.text = localization.propertyTypeOperationAndLocation(property.propertyType,
+                                                                                   operation: property.operation,
+                                                                                   neighborhood: property.neighborhood,
+                                                                                   municipality: property.municipality)
+        propertyPrice.text = localization.formattedPrice(property.priceInfo.price.amount.formattedDouble,
+                                                         currency: property.priceInfo.price.currencySuffix)
+        propertySize.text = localization.formattedSize(size)
+        propertyRooms.text = localization.formattedRooms(property.rooms)
+        propertyBathrooms.text = localization.formattedBathrooms(property.bathrooms)
         
         let favorite = favoritesManager.getFavorite(property)
         updateFavoriteButton(isFavorite: favorite.isFavorite)
