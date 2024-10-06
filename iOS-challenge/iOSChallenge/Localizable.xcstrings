@@ -1,0 +1,576 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@, %@" : {
+      "comment" : "Neighborhood and municipality",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "expandable_text_view_less_button_label" : {
+      "comment" : "See less button label in ExpandableTextView",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View less…"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver menos…"
+          }
+        }
+      }
+    },
+    "expandable_text_view_more_button_label" : {
+      "comment" : "See more button label in ExpandableTextView",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View more…"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver más…"
+          }
+        }
+      }
+    },
+    "map_view_error_button_label" : {
+      "comment" : "Button to try loading map again in error view",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intentar de nuevo"
+          }
+        }
+      }
+    },
+    "map_view_error_message" : {
+      "comment" : "Message if the map don't load",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please, try again later. If the issue persist please contact us"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor intenta de nuevo, si el problema persiste, contáctanos"
+          }
+        }
+      }
+    },
+    "map_view_error_message_title" : {
+      "comment" : "Title if the map don't load",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops, something happened :("
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops, no podemos mostrar el mapa :("
+          }
+        }
+      }
+    },
+    "Message in original language" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Message in original language"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "operation_rent" : {
+      "comment" : "Type of operation -> Rent",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rent"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alquiler"
+          }
+        }
+      }
+    },
+    "operation_sale" : {
+      "comment" : "Type of operation -> Sale",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sale"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Venta"
+          }
+        }
+      }
+    },
+    "price_suffix_month" : {
+      "comment" : "Localized suffix for monthly pricing",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/month"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/mes"
+          }
+        }
+      }
+    },
+    "property_card_bathrooms" : {
+      "comment" : "Format: {Count} bathrooms, e.g. '2 baños'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$d baths"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$d baños"
+          }
+        }
+      }
+    },
+    "property_card_label_bathrooms" : {
+      "comment" : "Word for bathrooms",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "baths"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "baños"
+          }
+        }
+      }
+    },
+    "property_card_label_rooms" : {
+      "comment" : "Abbreviated form of 'rooms'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "rooms"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "habs"
+          }
+        }
+      }
+    },
+    "property_card_label_square_meters" : {
+      "comment" : "Abbreviated form of square meters",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m²"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m²"
+          }
+        }
+      }
+    },
+    "property_card_price" : {
+      "comment" : "Format: {Amount} {Currency Symbol}, e.g. '250000.00 €'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@  %2$@"
+          }
+        }
+      }
+    },
+    "property_card_rooms" : {
+      "comment" : "Format: {Count} rooms, e.g. '3 hab.'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$d  rooms"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$d habs."
+          }
+        }
+      }
+    },
+    "property_card_size" : {
+      "comment" : "Format: {Size} m², e.g. '80.00 m²'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ m²"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ m²"
+          }
+        }
+      }
+    },
+    "property_card_type_operation_location" : {
+      "comment" : "Format: {Property Type} {Operation} - {Neighborhood}, {Municipality}, e.g. 'Apartment Sale - Gràcia, Barcelona'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ for %2$@ - %3$@ %4$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ en %2$@ - %3$@ %4$@"
+          }
+        }
+      }
+    },
+    "property_detail_bath_number" : {
+      "comment" : "Bathroom number text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bathrooms"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baños"
+          }
+        }
+      }
+    },
+    "property_detail_button_view_map" : {
+      "comment" : "View map button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View map"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver mapa"
+          }
+        }
+      }
+    },
+    "property_detail_constructed_area" : {
+      "comment" : "Constructed area text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Constructed area"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Superficie construida"
+          }
+        }
+      }
+    },
+    "property_detail_energy_certification" : {
+      "comment" : "Energy certification text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Energy certification"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certificación energética"
+          }
+        }
+      }
+    },
+    "property_detail_favorite_since" : {
+      "comment" : "Favorite since date",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite since %1$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorito desde %1$@"
+          }
+        }
+      }
+    },
+    "property_detail_format_type_operation" : {
+      "comment" : "Property type and operation  e.g. 'Apartment for Sale'",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ for %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ en %2$@"
+          }
+        }
+      }
+    },
+    "property_detail_info_bath" : {
+      "comment" : "Bathrooms abbreviation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bath"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "baños"
+          }
+        }
+      }
+    },
+    "property_detail_info_hab" : {
+      "comment" : "Rooms abbreviation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "rooms"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hab."
+          }
+        }
+      }
+    },
+    "property_detail_info_metters" : {
+      "comment" : "Square meters abbreviation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m²"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m²"
+          }
+        }
+      }
+    },
+    "property_detail_lift" : {
+      "comment" : "Lift available text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With lift"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con ascensor"
+          }
+        }
+      }
+    },
+    "property_detail_location" : {
+      "comment" : "Flat location text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orientation"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orientación"
+          }
+        }
+      }
+    },
+    "property_detail_map_label_approximate_location" : {
+      "comment" : "Approximate location title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aproximate location"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación aproximada"
+          }
+        }
+      }
+    },
+    "property_detail_room_number" : {
+      "comment" : "Room number text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rooms"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habitaciones"
+          }
+        }
+      }
+    },
+    "property_detail_section_additional_characteristics" : {
+      "comment" : "Additional characteristics title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Property Features"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Características Adicionales"
+          }
+        }
+      }
+    },
+    "property_list_toolbar_title" : {
+      "comment" : "Title shown in the toolbar",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your next home awaits"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encuentra tu próximo hogar"
+          }
+        }
+      }
+    },
+    "property_type_flat" : {
+      "comment" : "Type of property -> Flat",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flat"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piso"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
