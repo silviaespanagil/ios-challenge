@@ -9,25 +9,27 @@ import SwiftUI
 
 struct PropertyInfoView: View {
     
+    let localization: PropertyDetailLocalization = PropertyDetailLocalization()
+    
     var size: Double
     var rooms: Int
     var bathrooms: Int
-
+    
     var body: some View {
         
         VStack {
             
             HStack(spacing: .zero) {
                 
-                InfoSquare(icon: "house.fill", text: "\(rooms) hab.")
+                InfoSquare(icon: "house.fill", text: localization.roomsInfoText(rooms))
                 
                 Spacer()
                 
-                InfoSquare(icon: "ruler", text: "\(size.formattedDouble) m²")
+                InfoSquare(icon: "ruler", text: localization.sizeInfoText(size.formattedDouble))
                 
                 Spacer()
                 
-                InfoSquare(icon: "bathtub", text: "\(bathrooms) baños")
+                InfoSquare(icon: "bathtub", text: localization.bathroomsInfoText(bathrooms))
             }
             .frame(maxWidth: .infinity)
             .frame(height: 70)
@@ -42,7 +44,7 @@ struct InfoSquare: View {
     
     var icon: String
     var text: String
-
+    
     var body: some View {
         
         VStack {
