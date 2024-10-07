@@ -124,6 +124,10 @@ There are currently 31 unit tests in the app. I've given test priority to the do
 
 - **UIKit & SwiftUI Interoperability**: Implemented a wrapper pattern to seamlessly integrate UIKit components with SwiftUI views
 
+## The app in action 🎬
+
+<img src="https://github.com/user-attachments/assets/a90c14d2-4400-436c-ad0d-df45b558393f" alt="" width="250"/> <img src="https://github.com/user-attachments/assets/20daff58-13e4-40eb-803f-d8bf544c88b1" alt="" width="250"/>
+
 ## Future Improvements 🔮
 
 Even tho they are no part of the challenge I will surely keep adding some functionalities for my own sake.
